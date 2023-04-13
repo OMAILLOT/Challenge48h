@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Case : MonoBehaviour
 {
+    
+    public TypeCase type;
     [SerializeField] List<Transform> placeHolderPlayer;
     public List<PlayerController> playerOnCase = new List<PlayerController>();
 
     public virtual void OnStartCase(PlayerController currentPlayer)
     {
         playerOnCase.Add(currentPlayer);
-        
 
+        currentPlayer.OnPlayerEnter(this);
         if (playerOnCase.Count > 1)
         {
             for (int i = 0; i < playerOnCase.Count; i++)
@@ -36,15 +38,4 @@ public class Case : MonoBehaviour
             playerOnCase[0].transform.position = transform.position + Vector3.up * 1;
         }
     } 
-    public enum TypeCase { Normal, Bonus, Malus, qiPoints };
-    public TypeCase type;
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            // Si le joueur entre en collision avec la case, appeler la fonction "OnPlayerEnter"
-            other.GetComponent<Player>().OnPlayerEnter(this);
-        }
-    }
 }

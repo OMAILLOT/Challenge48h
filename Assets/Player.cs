@@ -9,19 +9,13 @@ public class Player : MonoBehaviour
 
    public void OnPlayerEnter(Case currentCase)
 {
-    if (currentCase.type == Case.TypeCase.Bonus)
+    if (currentCase.type == TypeCase.Chance)
     {
         // Si la case est de type "Bonus", ajouter de l'argent au joueur
         money += 100;
         Debug.Log("Vous avez gagné 100 € !");
     }
-    else if (currentCase.type == Case.TypeCase.Malus)
-    {
-        // Si la case est de type "Malus", retirer de l'argent au joueur
-        money -= 50;
-        Debug.Log("Vous avez perdu 50 € !");
-    }   
-    else if (currentCase.type == Case.TypeCase.qiPoints)
+    else if (currentCase.type == TypeCase.qiPoints)
     {
         // Si la case est de type "QI", retirer du QI au joueur
         qiPoints -= 50;

@@ -28,7 +28,7 @@ public class QuestionManager : MonoBehaviour
         GameObject caseJoueur = GameObject.FindGameObjectWithTag("CaseJoueur");
 
         // Vérifier si c'est une case "bonus" ou "malus"
-        if (caseJoueur.GetComponent<Case>().type == Case.TypeCase.Bonus)
+        if (caseJoueur.GetComponent<Case>().type == TypeCase.Chance)
         {
             // Choisir aléatoirement une question dans la liste "questionsList"
             Question randomQuestion = questionsList[Random.Range(0, questionsList.Count)];
@@ -37,7 +37,7 @@ public class QuestionManager : MonoBehaviour
             // Attendre la réponse du joueur
             StartCoroutine(WaitForAnswer(randomQuestion));
         }
-        else if (caseJoueur.GetComponent<Case>().type == Case.TypeCase.Malus)
+/*        else if (caseJoueur.GetComponent<Case>().type == TypeCase.Malus)
         {
             // Choisir une autre question dans la liste "questionsList"
             Question randomQuestion = questionsList[Random.Range(0, questionsList.Count)];
@@ -45,7 +45,7 @@ public class QuestionManager : MonoBehaviour
 
             // Attendre la réponse du joueur
             StartCoroutine(WaitForAnswer(randomQuestion));
-        }
+        }*/
     }
 
     IEnumerator WaitForAnswer(Question question)
