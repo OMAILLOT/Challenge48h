@@ -10,7 +10,7 @@ public class Case : MonoBehaviour
     [SerializeField] List<Transform> placeHolderPlayer;
     public List<PlayerController> playerOnCase = new List<PlayerController>();
 
-    public virtual void OnStartCase(PlayerController currentPlayer)
+    public virtual void PlayerOnthisCase(PlayerController currentPlayer, bool isPlayAnimationForThisPlayer = true)
     {
         playerOnCase.Add(currentPlayer);
 
@@ -19,7 +19,13 @@ public class Case : MonoBehaviour
         {
             for (int i = 0; i < playerOnCase.Count; i++)
             {
-                playerOnCase[i].transform.DOMove(placeHolderPlayer[i].position + Vector3.up * 1,.5f);
+                if (playerOnCase[i] == currentPlayer && !isPlayAnimationForThisPlayer)
+                {
+
+                } else
+                {
+                    playerOnCase[i].transform.DOMove(placeHolderPlayer[i].position + Vector3.up * 1,.5f);
+                }
             }
         }
     }

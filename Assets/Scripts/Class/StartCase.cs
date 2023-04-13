@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StartCase : Case
 {
-    public override void OnStartCase(PlayerController player)
+    public override void PlayerOnthisCase(PlayerController player, bool isPlayAnimationForthisPlayer = true)
     {
-        base.OnStartCase(player);
+        base.PlayerOnthisCase(player, isPlayAnimationForthisPlayer);
     }
 }
