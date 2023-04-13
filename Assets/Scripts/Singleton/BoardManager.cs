@@ -1,18 +1,10 @@
+using BaseTemplate.Behaviours;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardManager : MonoBehaviour
+public class BoardManager : MonoSingleton<BoardManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<Case> allCases;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
