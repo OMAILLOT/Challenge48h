@@ -41,7 +41,7 @@ public class UiManager : MonoSingleton<UiManager>
     {
         while (true)
         {
-            randomNumberText.text = Random.Range(2, 12).ToString();
+            randomNumberText.text = Random.Range(PlayerManager.Instance.minDiceNumber, PlayerManager.Instance.maxDiceNumber).ToString();
             yield return new WaitForSeconds(timeToChangeNumber);
         }
     }

@@ -1,9 +1,12 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject playerRenderer;
+
     public string playerName;
     public int currentCoin;
     public float knowledgePoint;
@@ -11,16 +14,54 @@ public class PlayerController : MonoBehaviour
     public int playerOnCaseIndex = 0;
     public int numberOfTurn = 0;
     public Case nextcase;
+    public List<Case> allCaseToNextCase = new List<Case>();
 
     int diceResult;
+    int nextCase;
+    Sequence playerMooveSequence;
     public void StartMyTurn()
     {
         isMyTurn = true;
-        diceResult = Random.Range(2, 12);
+        diceResult = Random.Range(PlayerManager.Instance.minDiceNumber, PlayerManager.Instance.maxDiceNumber);
         UiManager.Instance.randomNumber = diceResult;
+        playerMooveSequence = DOTween.Sequence();
     }
 
     public void PlayerMoove()
+    {
+
+        StartCoroutine(AnimationMove());
+            //.OnComplete(PlayerMooveInCase);
+            /*.Join(playerRenderer.transform.DOLocalMoveY(2, .5f))
+            .Append(playerRenderer.transform.DOLocalMoveY(0, .5f)).OnStepComplete(() => nextCase++).SetLoops(diceResult).OnComplete(PlayerMooveInCase);*/
+    }
+
+    IEnumerator AnimationMove()
+    {
+        nextCase = playerOnCaseIndex + 1;
+        int finalIndex = playerOnCaseIndex + diceResult + 1;
+        if (nextCase == BoardManager.Instance.allCases.Count)
+        {
+            nextCase = 0;
+            finalIndex -= BoardManager.Instance.allCases.Count;
+        }
+        while (nextCase < finalIndex)
+        {
+            yield return DOTween.Sequence().Append(transform.DOMove(BoardManager.Instance.allCases[nextCase].transform.position + Vector3.up * 1, .25f))
+                .Join(playerRenderer.transform.DOLocalMoveY(2, .125f))
+                .Append(playerRenderer.transform.DOLocalMoveY(0, .125f))
+                .WaitForCompletion();
+            nextCase++;
+            if (nextCase >= BoardManager.Instance.allCases.Count)
+            {
+                nextCase = 0;
+                finalIndex -= BoardManager.Instance.allCases.Count;
+            }
+        }
+        PlayerMooveInCase();
+    }
+
+    private void PlayerMooveInCase()
     {
         playerOnCaseIndex += diceResult;
         if (playerOnCaseIndex >= BoardManager.Instance.allCases.Count)
@@ -34,7 +75,7 @@ public class PlayerController : MonoBehaviour
             nextcase.ResetPlayerOnCase(this);
         }
         nextcase = BoardManager.Instance.allCases[playerOnCaseIndex];
-        transform.position = nextcase.transform.position + Vector3.up * 1;
+        //transform.position = nextcase.transform.position + Vector3.up * 1;
         nextcase.OnStartCase(this);
     }
 

@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
     public List<PlayerController> allPlayer;
+    public int minDiceNumber;
+    public int maxDiceNumber;
     public int currentIndexPlayer;
     [SerializeField] int startPlayerCoin;
     [SerializeField] int startKnowledgePoint;

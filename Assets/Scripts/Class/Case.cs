@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class Case : MonoBehaviour
         {
             for (int i = 0; i < playerOnCase.Count; i++)
             {
-                playerOnCase[i].transform.position = placeHolderPlayer[i].position + Vector3.up * 1;
+                playerOnCase[i].transform.DOMove(placeHolderPlayer[i].position + Vector3.up * 1,.5f);
             }
         }
     }
@@ -31,11 +32,11 @@ public class Case : MonoBehaviour
         {
             for (int i = 0; i < playerOnCase.Count; i++)
             {
-                playerOnCase[i].transform.position = placeHolderPlayer[i].position + Vector3.up * 1;
+                playerOnCase[i].transform.DOMove(placeHolderPlayer[i].position + Vector3.up * 1, .5f);
             }
         } else if (playerOnCase.Count == 1) 
         {
-            playerOnCase[0].transform.position = transform.position + Vector3.up * 1;
+            playerOnCase[0].transform.DOMove(transform.position + Vector3.up * 1, .5f);
         }
     } 
 }
