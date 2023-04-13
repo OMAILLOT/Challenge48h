@@ -11,6 +11,8 @@ public class UiManager : MonoSingleton<UiManager>
     [SerializeField] TextMeshProUGUI randomNumberText;
     [SerializeField] TextMeshProUGUI playerWhoPlayText;
 
+    [SerializeField] float timeToChangeNumber;
+
     public int randomNumber;
     public void StartTurnUI()
     {
@@ -18,9 +20,12 @@ public class UiManager : MonoSingleton<UiManager>
         startTurnButton.SetActive(true);
         nextTurnButton.SetActive(false);
         randomNumberText.text = "";
+        StartCoroutine(DiceLoop());
+
     }
     public void ButtonStartPress()
     {
+        StopAllCoroutines();
         playerWhoPlayText.text = "";
         PlayerManager.Instance.MooveCurrentPlayer();
         randomNumberText.text = randomNumber.ToString();
@@ -33,5 +38,13 @@ public class UiManager : MonoSingleton<UiManager>
         PlayerManager.Instance.NextTurn();
     }
 
+    IEnumerator DiceLoop()
+    {
+        while (true)
+        {
+            randomNumberText.text = Random.Range(2, 12).ToString();
+            yield return new WaitForSeconds(timeToChangeNumber);
+        }
+    }
 
 }
