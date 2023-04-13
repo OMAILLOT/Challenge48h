@@ -15,11 +15,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public int numberOfTurn;
 
     List<string> playerNameForCamera = new List<string>();
+    public List<PlayerController> bestPlayerInEndGame = new List<PlayerController>();
+    public int numberOfWinner = 0;
 
     public void Start()
     {
         for (int i = 0; i < allPlayer.Count; i++) 
         {
+            bestPlayerInEndGame.Add(allPlayer[i]);
             playerNameForCamera.Add($"Player{i+1}");
             allPlayer[i].transform.position = playerStartAndEnd[i].position;
             allPlayer[i].currentCoin = startPlayerCoin;
@@ -50,7 +53,25 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void EndGame()
     {
-
+        foreach(PlayerController player in bestPlayerInEndGame) 
+        {
+            // player.finalPoint = calcule
+            player.totalScore = player.currentCoin;
+        }
+        bestPlayerInEndGame.Sort((p1, p2) => p1.totalScore.CompareTo(p2.totalScore));
+        for ( int i = 0; i < bestPlayerInEndGame.Count; i++ )
+        {
+            if (i < bestPlayerInEndGame.Count-1 && bestPlayerInEndGame[i].totalScore == bestPlayerInEndGame[i + 1].totalScore)
+            {
+                numberOfWinner++;
+            }
+            else
+            {
+                if (i == bestPlayerInEndGame.Count - 1) numberOfWinner++;
+                break;
+            }
+        }
+        UiManager.Instance.EndGamePanel();
     }
 
     public void MooveCurrentPlayer()
@@ -67,10 +88,16 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public void PlayerFinish()
     {
         int index = currentIndexPlayer;
+        allPlayer[index].isMyTurn = false;
         allPlayer[index].transform.position = playerStartAndEnd[index].position;
         playerStartAndEnd.RemoveAt(index);
         allPlayer.RemoveAt(index);
-        CameraManager.Instance.allCameras.RemoveAt(index);
+        playerNameForCamera.RemoveAt(index);
+        //CameraManager.Instance.CameraSwitch("PETIT FDP");
+        //CameraManager.Instance.allCameras.RemoveAt(index);
+        //CameraManager.Instance.CameraSwitch(playerNameForCamera[currentIndexPlayer]);
+        currentIndexPlayer++;
+        if (currentIndexPlayer >= allPlayer.Count) currentIndexPlayer = 0;
         if (allPlayer.Count <= 0)
         {
             EndGame();

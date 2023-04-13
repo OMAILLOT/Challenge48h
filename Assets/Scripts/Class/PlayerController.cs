@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public Case nextCase;
     public List<Case> allCaseToNextCase = new List<Case>();
 
+    public int totalScore;
+
     int diceResult;
     public void StartMyTurn()
     {
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         
         //playerOnCaseIndex++;
-        int finalIndex = playerOnCaseIndex + diceResult + 1;
+        int finalIndex = playerOnCaseIndex + diceResult;
         if (playerOnCaseIndex == BoardManager.Instance.allCases.Count)
         {
             playerOnCaseIndex = 0;
@@ -61,11 +63,16 @@ public class PlayerController : MonoBehaviour
                 if (numberOfTurn == PlayerManager.Instance.numberOfTurn)
                 {
                     PlayerManager.Instance.PlayerFinish();
+                    nextCase.ResetPlayerOnCase(this);
+                    break;
                 }
             }
         }
-        nextCase.ResetPlayerOnCase(this);
-        nextCase.PlayerOnthisCase(this);
+        if (numberOfTurn < PlayerManager.Instance.numberOfTurn)
+        {
+            nextCase.ResetPlayerOnCase(this);
+            nextCase.PlayerOnthisCase(this);
+        }
         //transform.position = nextcase.transform.position + Vector3.up * 1;
     }
 

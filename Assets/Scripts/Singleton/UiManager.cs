@@ -1,14 +1,23 @@
 using BaseTemplate.Behaviours;
+using DG.Tweening;
 using System.Collections;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoSingleton<UiManager>
 {
+    [SerializeField] CanvasGroup GameView;
+    [SerializeField] CanvasGroup EndView;
+    [Space(10)]
     [SerializeField] GameObject startTurnButton;
     [SerializeField] GameObject nextTurnButton;
+    [Space(10)]
     [SerializeField] TextMeshProUGUI randomNumberText;
     [SerializeField] TextMeshProUGUI playerWhoPlayText;
+    [SerializeField] TextMeshProUGUI topPlayer;
+    [SerializeField] TextMeshProUGUI otherPlayer;
 
     [SerializeField] float timeToChangeNumber;
 
@@ -44,6 +53,36 @@ public class UiManager : MonoSingleton<UiManager>
             randomNumberText.text = Random.Range(PlayerManager.Instance.minDiceNumber, PlayerManager.Instance.maxDiceNumber).ToString();
             yield return new WaitForSeconds(timeToChangeNumber);
         }
+    }
+
+    public void EndGamePanel()
+    {
+        GameView.interactable = false;
+        GameView.blocksRaycasts = false;
+        topPlayer.text = "";
+        otherPlayer.text = "";
+
+        for (int i = 0; i < PlayerManager.Instance.numberOfWinner; i++)
+        {
+            topPlayer.text += $"{PlayerManager.Instance.bestPlayerInEndGame[i].playerName}\n";
+        }
+        for (int i = PlayerManager.Instance.numberOfWinner; i < PlayerManager.Instance.bestPlayerInEndGame.Count; i++)
+        {
+            otherPlayer.text += $"{PlayerManager.Instance.bestPlayerInEndGame[i].playerName},\n";
+        }
+        DOVirtual.Float(GameView.alpha, 0, .5f, a => GameView.alpha = a).SetDelay(1f);
+        DOVirtual.Float(EndView.alpha, 1, .5f, a => EndView.alpha = a).SetDelay(1f).OnComplete(() => {
+            EndView.interactable = true;
+            EndView.blocksRaycasts = true;
+        });
+
+    }
+
+
+
+    public void RestartGameButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
