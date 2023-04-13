@@ -36,4 +36,15 @@ public class Case : MonoBehaviour
             playerOnCase[0].transform.position = transform.position + Vector3.up * 1;
         }
     } 
+    public enum TypeCase { Normal, Bonus, Malus, qiPoints };
+    public TypeCase type;
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Si le joueur entre en collision avec la case, appeler la fonction "OnPlayerEnter"
+            other.GetComponent<Player>().OnPlayerEnter(this);
+        }
+    }
 }
