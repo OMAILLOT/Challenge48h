@@ -16,6 +16,7 @@ public class MPrincipale : MonoBehaviour
 
     public void OptionsButton()
     {
+        Debug.Log("Je go dans options");
         principalCanva.alpha = 0;
         principalCanva.interactable = false;
         optionCanva.alpha = 1;
