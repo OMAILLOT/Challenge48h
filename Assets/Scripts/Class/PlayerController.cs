@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     public int numberOfTurn = 0;
     public Case nextCase;
     public List<Case> allCaseToNextCase = new List<Case>();
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioClip nextTourClip;
 
     public int totalScore;
 
@@ -52,11 +55,13 @@ public class PlayerController : MonoBehaviour
                 .Join(playerRenderer.transform.DOLocalMoveY(2, .125f))
                 .Append(playerRenderer.transform.DOLocalMoveY(0, .125f))
                 .WaitForCompletion();
+            audioSource.PlayOneShot(audioClip, 5);
             if (playerOnCaseIndex < finalIndex-1) nextCase.ResetPlayerOnCase(this);
 
             playerOnCaseIndex++;
             if (playerOnCaseIndex >= BoardManager.Instance.allCases.Count)
             {
+                audioSource.PlayOneShot(nextTourClip);
                 playerOnCaseIndex = 0;
                 finalIndex -= BoardManager.Instance.allCases.Count;
                 numberOfTurn++;
@@ -82,13 +87,13 @@ public class PlayerController : MonoBehaviour
         {
             // Si la case est de type "Bonus", ajouter de l'argent au joueur
             currentCoin += 100;
-            Debug.Log("Vous avez gagné 100 € !");
+            Debug.Log("Vous avez gagnï¿½ 100 ï¿½ !");
         }
 /*        else if (currentCase.type == TypeCase.Malus)
         {
             // Si la case est de type "Malus", retirer de l'argent au joueur
             currentCoin -= 50;
-            Debug.Log("Vous avez perdu 50 € !");
+            Debug.Log("Vous avez perdu 50 ï¿½ !");
         }*/
         else if (currentCase.type == TypeCase.qiPoints)
         {
