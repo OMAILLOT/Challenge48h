@@ -38,6 +38,7 @@ public class Case : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             UiManager.Instance.nextTurnbuttonPress();
         }
+        yield return new WaitForSeconds(0.2f);
         CardManager.Instance.ActiveCard(type);
     }
 

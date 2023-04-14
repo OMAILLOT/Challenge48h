@@ -44,6 +44,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb7923f37d3e0d4cbce8fe185c20c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allPlayer: []
+  allPlayer:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playeryStatsTurnUi:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerStartAndEnd:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  minDiceNumber: 1
+  maxDiceNumber: 20
+  currentIndexPlayer: 0
   startPlayerCoin: 10000
-  startAverage: 10
+  startAveragePoint: 0
+  numberOfTurn: 3
+  bestPlayerInEndGame: []
+  numberOfWinner: 1

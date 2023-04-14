@@ -35,6 +35,18 @@ public class UiManager : MonoSingleton<UiManager>
     [SerializeField] TextMeshProUGUI questionDescription;
     [SerializeField] List<TextMeshProUGUI> allReponses;
 
+    [Header("Chance Panel")]
+    [SerializeField] TextMeshProUGUI chanceDescription;
+
+    [Header("Evenement panel")]
+    [SerializeField] TextMeshProUGUI evenmenentDescription;
+    
+    [Header("Interactive panel")]
+    [SerializeField] TextMeshProUGUI interactiveDescription;
+    [SerializeField] TextMeshProUGUI leftButton;
+    [SerializeField] TextMeshProUGUI rightButton;
+
+
     EvenmentCard currentEvenmentCard;
     CardQuestion currentCardQuestion;
     InteractionCard currentInteractionCard;
@@ -101,6 +113,7 @@ public class UiManager : MonoSingleton<UiManager>
     #region evenment
     public void ActiveEvenmentCardUi(EvenmentCard evenmentCard)
     {
+        evenmenentDescription.text = evenmentCard.Description;
         evenementPanel.alpha = 1;
         evenementPanel.interactable = true;
         evenementPanel.blocksRaycasts = true;
@@ -179,6 +192,10 @@ public class UiManager : MonoSingleton<UiManager>
 
     public void ActiveInteractionCard(InteractionCard interactionCard)
     {
+        interactiveDescription.text = interactionCard.desctiption;
+        leftButton.text = interactionCard.firstButtonText;
+        rightButton.text = interactionCard.secondButtonText;
+
         currentInteractionCard = interactionCard;
         interactionPanel.alpha = 1f;
         interactionPanel.interactable = true;
@@ -202,6 +219,8 @@ public class UiManager : MonoSingleton<UiManager>
     #region ChanceCard 
     public void ActiveChanceCard(ChanceCard chanceCard)
     {
+        chanceDescription.text = chanceCard.Description;
+
         currentChanceCard = chanceCard;
         chancePanel.alpha = 1f;
         chancePanel.interactable = true;
