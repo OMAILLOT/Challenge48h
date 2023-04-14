@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class MOptions : MonoBehaviour
@@ -12,6 +13,9 @@ public class MOptions : MonoBehaviour
     [SerializeField] private Toggle fullScreenToggle;
 
     [SerializeField] private TMP_Dropdown qualityDropdown;
+
+    [SerializeField] private Slider soundSlider;
+    [SerializeField] private AudioMixer audioMixer;
     
     [SerializeField] private CanvasGroup principalCanva;
     [SerializeField] private CanvasGroup optionCanva;
@@ -61,6 +65,19 @@ public class MOptions : MonoBehaviour
         }
 
         qualityDropdown.onValueChanged.AddListener(ChangeQuality);
+        
+        //Son
+        float savedSoundVolume = PlayerPrefs.GetFloat("soundVolume", 0);
+        if (savedSoundVolume != 0)
+        {
+            audioMixer.SetFloat("volume", savedSoundVolume);
+            soundSlider.value = savedSoundVolume;
+        }
+        else
+        {
+            audioMixer.SetFloat("volume", 0);
+            soundSlider.value = 0;
+        }
     }
 
     private int GetResolutionIndex(Resolution resolution)
@@ -113,5 +130,11 @@ public class MOptions : MonoBehaviour
         principalCanva.alpha = 1;
         principalCanva.interactable = true;
         principalCanva.blocksRaycasts = true;
+    }
+
+    public void ChangeVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("soundVolume", volume);
+        audioMixer.SetFloat("volume", volume);
     }
 }
