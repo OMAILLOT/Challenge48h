@@ -57,7 +57,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         foreach (PlayerController player in bestPlayerInEndGame) 
         {
             // player.finalPoint = calcule
-            player.totalScore = player.currentCoin;
+            player.totalScore = (int) (player.knowledgePoint * 100) + (player.currentCoin / 80 * 100);
         }
         bestPlayerInEndGame.Sort((p1, p2) => p1.totalScore.CompareTo(p2.totalScore));
         bestPlayerInEndGame.Reverse();
@@ -95,9 +95,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         playerStartAndEnd.RemoveAt(index);
         allPlayer.RemoveAt(index);
         playerNameForCamera.RemoveAt(index);
-        //CameraManager.Instance.CameraSwitch("PETIT FDP");
-        //CameraManager.Instance.allCameras.RemoveAt(index);
-        //CameraManager.Instance.CameraSwitch(playerNameForCamera[currentIndexPlayer]);
         currentIndexPlayer++;
         if (currentIndexPlayer >= allPlayer.Count) currentIndexPlayer = 0;
         if (allPlayer.Count <= 0)
