@@ -6,11 +6,29 @@ public class QuestionManager : MonoBehaviour
 {
     public CardQuestion questionCard;
 
+<<<<<<< Updated upstream
     private void Start()
     {
         string filePath = Application.dataPath + "/QuestionsFiles/questions_easyQI.csv";
 
         StreamReader reader = new StreamReader(filePath);
+=======
+    public CardQuestion PeekCard(bool isEasy, bool isInteraction)
+    {
+        string easyOrHard = isEasy ? "easy" : "hard";
+        string filePath = Application.dataPath + "/QuestionsFiles/questions_" + easyOrHard + "QI.csv";
+        string filePathInter = Application.dataPath + "/QuestionsFiles/questions_interactions.csv";
+
+        StreamReader reader = null;
+        if (isInteraction)
+        {
+            reader = new StreamReader(filePathInter);
+        }
+        else
+        {
+            reader = new StreamReader(filePath);
+        }
+>>>>>>> Stashed changes
 
         List<CardQuestion> questionCards = new List<CardQuestion>();
 
@@ -30,17 +48,13 @@ public class QuestionManager : MonoBehaviour
             }
 
             card.reponse = answers;
-            card.bonneReponse = answers[1]; // isoler la deuxième colonne (la bonne réponse)
+            card.bonneReponse = answers[1];
             questionCards.Add(card);
         }
 
-        // Sélectionne une question aléatoire
         CardQuestion randomQuestion = questionCards[Random.Range(0, questionCards.Count)];
 
-        // Affiche la question
         Debug.Log("Question : " + randomQuestion.question);
-    
-        // Affiche les réponses possibles
         foreach (string answer in randomQuestion.reponse)
         {
             Debug.Log("Réponse : " + answer);
@@ -48,5 +62,9 @@ public class QuestionManager : MonoBehaviour
 
         reader.Close();
 
+<<<<<<< Updated upstream
+=======
+        return randomQuestion;
+>>>>>>> Stashed changes
     }
 }
