@@ -18,5 +18,11 @@ public class CardQuestion : ScriptableObject
         PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint += knowledgeUpdate;
     }
 
+    public void looseChose()
+    {
+        PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].currentCoin -= CoinUpdate;
+        PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint -= knowledgeUpdate;
+    }
+
 
 }

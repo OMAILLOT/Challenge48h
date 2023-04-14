@@ -11,10 +11,10 @@ public class EvenmentCard : ScriptableObject
     public int coinCondition;
     public int knowledgeCondition;
     [Space(5)]
-    bool isConditionCoin;
-    bool isConditionKnowledge;
+    public bool isConditionCoin;
+    public bool isConditionKnowledge;
     [Space(5)]
-    bool isSuperior;
+    public bool isSuperior;
 
     public void ActiveEvenmentCard()
     {

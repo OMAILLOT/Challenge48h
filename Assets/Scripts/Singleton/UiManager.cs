@@ -102,7 +102,7 @@ public class UiManager : MonoSingleton<UiManager>
         currentEvenmentCard = evenmentCard;
     }
 
-    public void finishEvent()
+    public void ActiveEvent()
     {
         evenementPanel.alpha = 0f;
         evenementPanel.interactable = false;
@@ -126,6 +126,9 @@ public class UiManager : MonoSingleton<UiManager>
         if (currentCardQuestion.answerIndex == index)
         {
             currentCardQuestion.WinChoose();
+        } else
+        {
+            currentCardQuestion.looseChose();
         }
         iQPanel.alpha = 0f;
         iQPanel.interactable = false;
@@ -163,14 +166,14 @@ public class UiManager : MonoSingleton<UiManager>
     {
         currentChanceCard = chanceCard;
         chancePanel.alpha = 1f;
-        chancePanel.interactable = false;
-        chancePanel.blocksRaycasts = false;
+        chancePanel.interactable = true;
+        chancePanel.blocksRaycasts = true;
     }
 
     public void ActiveChance()
     {
         currentChanceCard.ActiveChanceCard();
-        chancePanel.alpha = 1f;
+        chancePanel.alpha = 0f;
         chancePanel.interactable = false;
         chancePanel.blocksRaycasts = false;
     }

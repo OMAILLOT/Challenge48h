@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88b24e8c91960a046bea14bec588bda3, type: 3}
+  m_Script: {fileID: 11500000, guid: b5fc3d53a9c06c34cbc8eba7151694b9, type: 3}
   m_Name: Card
   m_EditorClassIdentifier: 
-  Description: Tout le monde pert 100 coin
-  CoinUpdate: -100
-  knowledgeUpdate: 0
+  Description: Tout le monde au dessus de 100 coin pert 200 de connaisance
+  CoinUpdate: 0
+  knowledgeUpdate: -300
+  coinCondition: 100
+  knowledgeCondition: 0
+  isConditionCoin: 1
+  isConditionKnowledge: 0
+  isSuperior: 1

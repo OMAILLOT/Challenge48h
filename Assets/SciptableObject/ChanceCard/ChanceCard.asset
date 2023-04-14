@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 386eeb3b4db409348814500c01e35ba7, type: 3}
-  m_Name: QuestionCard
+  m_Script: {fileID: 11500000, guid: 88b24e8c91960a046bea14bec588bda3, type: 3}
+  m_Name: ChanceCard
   m_EditorClassIdentifier: 
-  description: 
-  questions: []
+  Description: GG Tu pert 100 de connaissance
+  CoinUpdate: 0
+  knowledgeUpdate: -100
