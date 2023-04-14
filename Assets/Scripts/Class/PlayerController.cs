@@ -13,70 +13,67 @@ public class PlayerController : MonoBehaviour
     public bool isMyTurn = false;
     public int playerOnCaseIndex = 0;
     public int numberOfTurn = 0;
-    public Case nextcase;
+    public Case nextCase;
     public List<Case> allCaseToNextCase = new List<Case>();
 
+    public int totalScore;
+
     int diceResult;
-    int nextCase;
-    Sequence playerMooveSequence;
     public void StartMyTurn()
     {
         isMyTurn = true;
         diceResult = Random.Range(PlayerManager.Instance.minDiceNumber, PlayerManager.Instance.maxDiceNumber);
         UiManager.Instance.randomNumber = diceResult;
-        playerMooveSequence = DOTween.Sequence();
     }
 
     public void PlayerMoove()
     {
-
         StartCoroutine(AnimationMove());
-            //.OnComplete(PlayerMooveInCase);
-            /*.Join(playerRenderer.transform.DOLocalMoveY(2, .5f))
-            .Append(playerRenderer.transform.DOLocalMoveY(0, .5f)).OnStepComplete(() => nextCase++).SetLoops(diceResult).OnComplete(PlayerMooveInCase);*/
     }
 
     IEnumerator AnimationMove()
     {
-        nextCase = playerOnCaseIndex + 1;
-        int finalIndex = playerOnCaseIndex + diceResult + 1;
-        if (nextCase == BoardManager.Instance.allCases.Count)
+        
+        //playerOnCaseIndex++;
+        int finalIndex = playerOnCaseIndex + diceResult;
+        if (playerOnCaseIndex == BoardManager.Instance.allCases.Count)
         {
-            nextCase = 0;
+            playerOnCaseIndex = 0;
             finalIndex -= BoardManager.Instance.allCases.Count;
         }
-        while (nextCase < finalIndex)
+        if (nextCase != null) { 
+            nextCase.ResetPlayerOnCase(this); 
+        }
+        while (playerOnCaseIndex < finalIndex)
         {
-            yield return DOTween.Sequence().Append(transform.DOMove(BoardManager.Instance.allCases[nextCase].transform.position + Vector3.up * 1, .25f))
+            nextCase = BoardManager.Instance.allCases[playerOnCaseIndex];   
+            nextCase.PlayerOnthisCase(this, false);
+            yield return DOTween.Sequence().Append(transform.DOMove(BoardManager.Instance.allCases[playerOnCaseIndex].transform.position + Vector3.up * 1, .25f))
                 .Join(playerRenderer.transform.DOLocalMoveY(2, .125f))
                 .Append(playerRenderer.transform.DOLocalMoveY(0, .125f))
                 .WaitForCompletion();
-            nextCase++;
-            if (nextCase >= BoardManager.Instance.allCases.Count)
+            if (playerOnCaseIndex < finalIndex-1) nextCase.ResetPlayerOnCase(this);
+
+            playerOnCaseIndex++;
+            if (playerOnCaseIndex >= BoardManager.Instance.allCases.Count)
             {
-                nextCase = 0;
+                playerOnCaseIndex = 0;
                 finalIndex -= BoardManager.Instance.allCases.Count;
+                numberOfTurn++;
+                if (numberOfTurn == PlayerManager.Instance.numberOfTurn)
+                {
+                    PlayerManager.Instance.PlayerFinish();
+                    nextCase.ResetPlayerOnCase(this);
+                    break;
+                }
             }
         }
-        PlayerMooveInCase();
-    }
-
-    private void PlayerMooveInCase()
-    {
-        playerOnCaseIndex += diceResult;
-        if (playerOnCaseIndex >= BoardManager.Instance.allCases.Count)
+        if (numberOfTurn < PlayerManager.Instance.numberOfTurn)
         {
-            numberOfTurn++;
-            playerOnCaseIndex = playerOnCaseIndex - BoardManager.Instance.allCases.Count;
+            nextCase.ResetPlayerOnCase(this);
+            nextCase.PlayerOnthisCase(this, true, true);
         }
-
-        if (nextcase != null)
-        {
-            nextcase.ResetPlayerOnCase(this);
-        }
-        nextcase = BoardManager.Instance.allCases[playerOnCaseIndex];
         //transform.position = nextcase.transform.position + Vector3.up * 1;
-        nextcase.OnStartCase(this);
     }
 
     public void OnPlayerEnter(Case currentCase)
