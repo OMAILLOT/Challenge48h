@@ -11,7 +11,7 @@ public class QuestionManager : MonoSingleton<QuestionManager>
     {
         string easyOrHard = isEasy ? "easy" : "hard";
 
-        string filePath = Application.dataPath + "/QuestionsFiles/questions_"+isEasy+"QI.csv";
+        string filePath = Application.dataPath + "/QuestionsFiles/questions_"+easyOrHard+"QI.csv";
 
         StreamReader reader = new StreamReader(filePath);
 
