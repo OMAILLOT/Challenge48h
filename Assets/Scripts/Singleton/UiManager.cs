@@ -25,7 +25,6 @@ public class UiManager : MonoSingleton<UiManager>
     //[SerializeField] Button nextTurnButton;
     [Space(10)]
     [SerializeField] TextMeshProUGUI randomNumberText;
-    [SerializeField] TextMeshProUGUI playerWhoPlayText;
     [SerializeField] TextMeshProUGUI topPlayer;
     [SerializeField] TextMeshProUGUI otherPlayer;
 
@@ -59,7 +58,6 @@ public class UiManager : MonoSingleton<UiManager>
     public int randomNumber;
     public void StartTurnUI()
     {
-        playerWhoPlayText.text = PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].playerName;
         startTurnButton.interactable = true;
         randomNumberText.text = "";
         StartCoroutine(DiceLoop());

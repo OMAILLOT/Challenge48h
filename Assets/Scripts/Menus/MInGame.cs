@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class MInGame : MonoSingleton<MInGame>
 {
-    
+
+    [SerializeField] private TMP_Text turn;
     [SerializeField] private TMP_Text player1QiText;
     [SerializeField] private TMP_Text player1MoneyText;
     [SerializeField] private TMP_Text player2QiText;
@@ -25,18 +26,22 @@ public class MInGame : MonoSingleton<MInGame>
             switch (i)
             {
                 case 0:
+                    turn.text = players[i].numberOfTurn.ToString();
                     player1QiText.text = players[i].knowledgePoint.ToString();
                     player1MoneyText.text = players[i].currentCoin.ToString();
                     break;
                 case 1:
+                    turn.text = players[i].numberOfTurn.ToString();
                     player2QiText.text = players[i].knowledgePoint.ToString();
                     player2MoneyText.text = players[i].currentCoin.ToString();
                     break;
                 case 2:
+                    turn.text = players[i].numberOfTurn.ToString();
                     player3QiText.text = players[i].knowledgePoint.ToString();
                     player3MoneyText.text = players[i].currentCoin.ToString();
                     break;
                 case 3:
+                    turn.text = players[i].numberOfTurn.ToString();
                     player4QiText.text = players[i].knowledgePoint.ToString();
                     player4MoneyText.text = players[i].currentCoin.ToString();
                     break;
