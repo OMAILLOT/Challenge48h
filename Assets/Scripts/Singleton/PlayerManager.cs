@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
     public List<PlayerController> allPlayer;
+    public List<GameObject> playeryStatsTurnUi;
     public List<Transform> playerStartAndEnd;
     public int minDiceNumber;
     public int maxDiceNumber;
@@ -26,7 +27,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
             playerNameForCamera.Add($"Player{i+1}");
             allPlayer[i].transform.position = playerStartAndEnd[i].position;
             allPlayer[i].currentCoin = startPlayerCoin;
-            allPlayer[i].averagePoint = startAveragePoint;
+            allPlayer[i].knowledgePoint = startAveragePoint;
         }
         StartFirstTurn();
     }
@@ -37,14 +38,17 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         allPlayer[currentIndexPlayer].StartMyTurn();
         UiManager.Instance.StartTurnUI();
         CameraManager.Instance.CameraSwitch(playerNameForCamera[currentIndexPlayer]);
+        playeryStatsTurnUi[currentIndexPlayer].SetActive(true);
 
     }
     public void NextTurn()
     {
         allPlayer[currentIndexPlayer].isMyTurn = false;
-
+        playeryStatsTurnUi[currentIndexPlayer].SetActive(false);
         currentIndexPlayer++;
         if (currentIndexPlayer >= allPlayer.Count) currentIndexPlayer = 0;
+
+        playeryStatsTurnUi[currentIndexPlayer].SetActive(true);
 
         CameraManager.Instance.CameraSwitch(playerNameForCamera[currentIndexPlayer]);
         allPlayer[currentIndexPlayer].StartMyTurn();
@@ -57,7 +61,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         foreach (PlayerController player in bestPlayerInEndGame) 
         {
             // player.finalPoint = calcule
-            player.totalScore = (int) (player.averagePoint * 100) + (player.currentCoin / 80 * 100);
+            player.totalScore = (int) (player.knowledgePoint * 100) + (player.currentCoin / 80 * 100);
         }
         bestPlayerInEndGame.Sort((p1, p2) => p1.totalScore.CompareTo(p2.totalScore));
         bestPlayerInEndGame.Reverse();
@@ -100,6 +104,16 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         if (allPlayer.Count <= 0)
         {
             EndGame();
+        } else
+        {
+            StartCoroutine(WaitBeforeChangePlayer());
         }
+        
+    }
+
+    IEnumerator WaitBeforeChangePlayer()
+    {
+        yield return new WaitForSeconds(2f);
+        UiManager.Instance.nextTurnbuttonPress();
     }
 }

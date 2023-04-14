@@ -1,17 +1,28 @@
 using BaseTemplate.Behaviours;
 using DG.Tweening;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UiManager : MonoSingleton<UiManager>
 {
+    public CanvasGroup evenementPanel;
+    public CanvasGroup iQPanel;
+    public CanvasGroup chancePanel;
+    public CanvasGroup interactionPanel;
+    public CanvasGroup preQuestionPanel;
+
+
+    [Space(5)]
     [SerializeField] CanvasGroup GameView;
     [SerializeField] CanvasGroup EndView;
     [Space(10)]
-    [SerializeField] GameObject startTurnButton;
-    [SerializeField] GameObject nextTurnButton;
+    [SerializeField] Button startTurnButton;
+    //[SerializeField] Button nextTurnButton;
     [Space(10)]
     [SerializeField] TextMeshProUGUI randomNumberText;
     [SerializeField] TextMeshProUGUI playerWhoPlayText;
@@ -20,12 +31,24 @@ public class UiManager : MonoSingleton<UiManager>
 
     [SerializeField] float timeToChangeNumber;
 
+    [Header("Question Panel")]
+    [SerializeField] TextMeshProUGUI questionDescription;
+    [SerializeField] List<TextMeshProUGUI> allReponses;
+
+    EvenmentCard currentEvenmentCard;
+    CardQuestion currentCardQuestion;
+    InteractionCard currentInteractionCard;
+    ChanceCard currentChanceCard;
+    bool isCurrentCardEasy;
+
+    TypeCase currentTypeCase;
+
+
     public int randomNumber;
     public void StartTurnUI()
     {
         playerWhoPlayText.text = PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].playerName;
-        startTurnButton.SetActive(true);
-        nextTurnButton.SetActive(false);
+        startTurnButton.interactable = true;
         randomNumberText.text = "";
         StartCoroutine(DiceLoop());
 
@@ -33,11 +56,10 @@ public class UiManager : MonoSingleton<UiManager>
     public void ButtonStartPress()
     {
         StopAllCoroutines();
-        playerWhoPlayText.text = "";
+        //playerWhoPlayText.text = "";
         PlayerManager.Instance.MooveCurrentPlayer();
         randomNumberText.text = randomNumber.ToString();
-        startTurnButton.SetActive(false);
-        nextTurnButton.SetActive(true);
+        startTurnButton.interactable = false;
     }
 
     public void nextTurnbuttonPress()
@@ -49,7 +71,7 @@ public class UiManager : MonoSingleton<UiManager>
     {
         while (true)
         {
-            randomNumberText.text = Random.Range(PlayerManager.Instance.minDiceNumber, PlayerManager.Instance.maxDiceNumber).ToString();
+            randomNumberText.text = UnityEngine.Random.Range(PlayerManager.Instance.minDiceNumber, PlayerManager.Instance.maxDiceNumber).ToString();
             yield return new WaitForSeconds(timeToChangeNumber);
         }
     }
@@ -74,14 +96,136 @@ public class UiManager : MonoSingleton<UiManager>
             EndView.interactable = true;
             EndView.blocksRaycasts = true;
         });
-
     }
 
+    #region evenment
+    public void ActiveEvenmentCardUi(EvenmentCard evenmentCard)
+    {
+        evenementPanel.alpha = 1;
+        evenementPanel.interactable = true;
+        evenementPanel.blocksRaycasts = true;
+        currentEvenmentCard = evenmentCard;
+    }
 
+    public void ActiveEvent()
+    {
+        evenementPanel.alpha = 0f;
+        evenementPanel.interactable = false;
+        evenementPanel.blocksRaycasts = false;
+        currentEvenmentCard.ActiveEvenmentCard();
+        nextTurnbuttonPress();
+    }
+    #endregion
+
+    #region QuestionCard
+
+    public void ActivePreQuestionCardUi(CardQuestion cardQuestion)
+    {
+        preQuestionPanel.alpha = 1f;
+        preQuestionPanel.interactable = true;
+        preQuestionPanel.blocksRaycasts = true;
+        currentCardQuestion = cardQuestion;
+    }
+    public void ActiveQuestionCardUi()
+    {
+        preQuestionPanel.alpha = 0;
+        iQPanel.interactable = false;
+        iQPanel.blocksRaycasts = false;
+
+        questionDescription.text = currentCardQuestion.question;
+
+        for (int i = 0; i < currentCardQuestion.reponse.Count; i++)
+        {
+            allReponses[i].text = currentCardQuestion.reponse[i];
+        } 
+
+        iQPanel.alpha = 1;
+        iQPanel.interactable = true;
+        iQPanel.blocksRaycasts = true;
+        
+    }
+
+    public void CheckQuestion(int index)
+    {
+        if (currentCardQuestion.bonneReponse == currentCardQuestion.reponse[index])
+        {
+            if (isCurrentCardEasy) PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint += 100;
+            else PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint += 200;
+        } else
+        {
+            if (isCurrentCardEasy) PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint -= 100;
+            else PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint -= 200;
+        }
+        iQPanel.alpha = 0f;
+        iQPanel.interactable = false;
+        iQPanel.blocksRaycasts = false;
+        nextTurnbuttonPress();
+    }
+
+    public void CheckLevelQuetion(bool isEasy)
+    {
+        preQuestionPanel.alpha = 0f;
+        preQuestionPanel.interactable = false;
+        preQuestionPanel.blocksRaycasts = false;
+        isCurrentCardEasy = isEasy;
+        QuestionManager.Instance.PeekCard(isEasy);
+        ActiveQuestionCardUi();
+    }
+    #endregion
+
+    #region InteractionCard
+
+    public void ActiveInteractionCard(InteractionCard interactionCard)
+    {
+        currentInteractionCard = interactionCard;
+        interactionPanel.alpha = 1f;
+        interactionPanel.interactable = true;
+        interactionPanel.blocksRaycasts = true;
+    }
+
+    public void ActiveInteraction(bool isAccept)
+    {
+        if (isAccept)
+        {
+            currentInteractionCard.ActiveInteractionCard();
+        }
+        interactionPanel.alpha = 0f;
+        interactionPanel.interactable = false;
+        interactionPanel.blocksRaycasts = false;
+        nextTurnbuttonPress();
+    }
+
+    #endregion
+
+    #region ChanceCard 
+    public void ActiveChanceCard(ChanceCard chanceCard)
+    {
+        currentChanceCard = chanceCard;
+        chancePanel.alpha = 1f;
+        chancePanel.interactable = true;
+        chancePanel.blocksRaycasts = true;
+    }
+
+    public void ActiveChance()
+    {
+        chancePanel.alpha = 0f;
+        chancePanel.interactable = false;
+        chancePanel.blocksRaycasts = false;
+        currentChanceCard.ActiveChanceCard();
+        nextTurnbuttonPress();
+    }
+    #endregion
 
     public void RestartGameButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+}
+
+[Serializable]
+public class AllPanelCard
+{
+    public TypeCase typePanel;
+    public CanvasGroup canvasGroup;
 }
