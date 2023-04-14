@@ -248,6 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionText: {fileID: 930104451}
   qipointBonus: 10
+  qipointMalus: 10
   argentBonus: 50
   argentMalus: -25
   score: 0
@@ -395,10 +396,10 @@ MonoBehaviour:
   m_text: 'Question :
 
 
-    Pourquoi dzdz'
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8649291cff0f2b846a6d923cf05f65da, type: 2}
-  m_sharedMaterial: {fileID: 6614880000901713413, guid: 8649291cff0f2b846a6d923cf05f65da, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e48d5b0a3b35215c8b7079f14195ffbd, type: 2}
+  m_sharedMaterial: {fileID: 5923025299985778934, guid: e48d5b0a3b35215c8b7079f14195ffbd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -487,7 +488,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6614880000901713413, guid: 8649291cff0f2b846a6d923cf05f65da, type: 2}
+  - {fileID: 5923025299985778934, guid: e48d5b0a3b35215c8b7079f14195ffbd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -602,6 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionText: {fileID: 930104451}
   qipointBonus: 10
+  qipointMalus: 10
   argentBonus: 50
   argentMalus: -25
   score: 0
@@ -715,9 +717,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b92175a40d7924fb98b54912b8ef49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   placeHolderPlayer: []
   playerOnCase: []
-  type: 1
 --- !u!1 &1694037982
 GameObject:
   m_ObjectHideFlags: 0
