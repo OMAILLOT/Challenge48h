@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1fe48c9-e4bc-4f42-a894-68f7ecceec82" name="Changes" comment="">
+    <list default="true" id="a1fe48c9-e4bc-4f42-a894-68f7ecceec82" name="Changes" comment="Ajout sons">
+      <change afterPath="$PROJECT_DIR$/Assets/UI_Buttons_Pack2.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI_Buttons_Pack2/Button_10_Pack2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI_Buttons_Pack2/Button_10_Pack2.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI_Buttons_Pack2/Button_17_Pack2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UI_Buttons_Pack2/Button_17_Pack2.wav.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Challenge48h/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Challenge48h/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Class/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Class/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/MOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/MOptions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/MPrincipale.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/MPrincipale.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +154,7 @@
       <workItem from="1681471825784" duration="2252000" />
       <workItem from="1681476711090" duration="692000" />
       <workItem from="1681479777314" duration="2122000" />
-      <workItem from="1681484229361" duration="359000" />
+      <workItem from="1681484229361" duration="693000" />
     </task>
     <task id="LOCAL-00001" summary="Patch">
       <created>1681458704533</created>
@@ -183,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681481883161</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ajout sons">
+      <created>1681484921455</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681484921455</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +224,8 @@
     <MESSAGE value="Ajout fichier son" />
     <MESSAGE value="Patch" />
     <MESSAGE value="Ajout bruit quand le pion arrive sur une case" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout bruit quand le pion arrive sur une case" />
+    <MESSAGE value="Ajout sons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout sons" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
