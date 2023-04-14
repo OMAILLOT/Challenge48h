@@ -3332,7 +3332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19.455, y: -93.10303}
+  m_AnchoredPosition: {x: 19.455078, y: -93.10303}
   m_SizeDelta: {x: -1339.1, y: -418.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &972780202
@@ -11609,6 +11609,11 @@ MonoBehaviour:
   - {fileID: 1892302800}
   - {fileID: 1062745867}
   - {fileID: 1822772703}
+  chanceDescription: {fileID: 309636122}
+  evenmenentDescription: {fileID: 1177666907}
+  interactiveDescription: {fileID: 291359748}
+  leftButton: {fileID: 1667569629}
+  rightButton: {fileID: 909517299}
   randomNumber: 0
 --- !u!114 &784256661822074702
 MonoBehaviour:
