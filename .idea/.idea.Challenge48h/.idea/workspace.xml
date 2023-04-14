@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1fe48c9-e4bc-4f42-a894-68f7ecceec82" name="Changes" comment="Changement d'asset">
+    <list default="true" id="a1fe48c9-e4bc-4f42-a894-68f7ecceec82" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Challenge48h/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Challenge48h/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Manager/UiManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Manager/UiManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/MInGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/MInGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton/UiManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton/UiManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +147,7 @@
       <workItem from="1681479777314" duration="2122000" />
       <workItem from="1681484229361" duration="1358000" />
       <workItem from="1681500992442" duration="453000" />
-      <workItem from="1681506063347" duration="1982000" />
+      <workItem from="1681506063347" duration="2985000" />
     </task>
     <task id="LOCAL-00001" summary="Patch">
       <created>1681458704533</created>
@@ -216,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681506699520</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Ajout tour count">
+      <created>1681508997920</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681508997920</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +249,8 @@
     <MESSAGE value="Duplication of scene" />
     <MESSAGE value="before merge" />
     <MESSAGE value="Changement d'asset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changement d'asset" />
+    <MESSAGE value="Ajout tour count" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout tour count" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
