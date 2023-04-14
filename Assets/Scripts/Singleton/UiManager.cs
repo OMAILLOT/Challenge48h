@@ -172,10 +172,11 @@ public class UiManager : MonoSingleton<UiManager>
 
     public void ActiveChance()
     {
-        currentChanceCard.ActiveChanceCard();
         chancePanel.alpha = 0f;
         chancePanel.interactable = false;
         chancePanel.blocksRaycasts = false;
+        currentChanceCard.ActiveChanceCard();
+        nextTurnbuttonPress();
     }
     #endregion
 
