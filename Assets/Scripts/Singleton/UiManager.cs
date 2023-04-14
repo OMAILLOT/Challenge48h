@@ -143,8 +143,8 @@ public class UiManager : MonoSingleton<UiManager>
     {
         currentInteractionCard = interactionCard;
         interactionPanel.alpha = 1f;
-        interactionPanel.interactable = false;
-        interactionPanel.blocksRaycasts = false;
+        interactionPanel.interactable = true;
+        interactionPanel.blocksRaycasts = true;
     }
 
     public void ActiveInteraction(bool isAccept)
