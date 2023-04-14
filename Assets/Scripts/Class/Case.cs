@@ -10,11 +10,11 @@ public class Case : MonoBehaviour
     [SerializeField] List<Transform> placeHolderPlayer;
     public List<PlayerController> playerOnCase = new List<PlayerController>();
 
-    public virtual void PlayerOnthisCase(PlayerController currentPlayer, bool isPlayAnimationForThisPlayer = true)
+    public virtual void PlayerOnthisCase(PlayerController currentPlayer, bool isPlayAnimationForThisPlayer = true, bool isLastCase = false)
     {
         playerOnCase.Add(currentPlayer);
 
-        currentPlayer.OnPlayerEnter(this);
+        //currentPlayer.OnPlayerEnter(this);
         if (playerOnCase.Count > 1)
         {
             for (int i = 0; i < playerOnCase.Count; i++)
@@ -28,6 +28,17 @@ public class Case : MonoBehaviour
                 }
             }
         }
+        if (isLastCase) StartCoroutine(ActiveCase());
+    }
+
+    public IEnumerator ActiveCase()
+    {
+        if (type == TypeCase.Normal)
+        {
+            yield return new WaitForSeconds(0.5f);
+            UiManager.Instance.nextTurnbuttonPress();
+        }
+        CardManager.Instance.ActiveCard(type);
     }
 
     public virtual void ResetPlayerOnCase(PlayerController currentPlayer)
