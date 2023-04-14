@@ -100,6 +100,16 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         if (allPlayer.Count <= 0)
         {
             EndGame();
+        } else
+        {
+            StartCoroutine(WaitBeforeChangePlayer());
         }
+        
+    }
+
+    IEnumerator WaitBeforeChangePlayer()
+    {
+        yield return new WaitForSeconds(2f);
+        UiManager.Instance.nextTurnbuttonPress();
     }
 }
