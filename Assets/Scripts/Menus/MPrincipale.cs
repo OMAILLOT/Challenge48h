@@ -16,11 +16,12 @@ public class MPrincipale : MonoBehaviour
 
     public void OptionsButton()
     {
-        Debug.Log("Je go dans options");
         principalCanva.alpha = 0;
         principalCanva.interactable = false;
+        principalCanva.blocksRaycasts = false;
         optionCanva.alpha = 1;
         optionCanva.interactable = true;
+        optionCanva.blocksRaycasts = true;
     }
 
     public void QuitButton()

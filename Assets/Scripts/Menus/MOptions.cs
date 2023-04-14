@@ -12,6 +12,9 @@ public class MOptions : MonoBehaviour
     [SerializeField] private Toggle fullScreenToggle;
 
     [SerializeField] private TMP_Dropdown qualityDropdown;
+    
+    [SerializeField] private CanvasGroup principalCanva;
+    [SerializeField] private CanvasGroup optionCanva;
 
     private void Start()
     {
@@ -100,5 +103,15 @@ public class MOptions : MonoBehaviour
 
         PlayerPrefs.SetInt("qualityIndex", index);
         PlayerPrefs.Save();
+    }
+
+    public void BackToPrincipale()
+    {
+        optionCanva.alpha = 0;
+        optionCanva.interactable = false;
+        optionCanva.blocksRaycasts = false;
+        principalCanva.alpha = 1;
+        principalCanva.interactable = true;
+        principalCanva.blocksRaycasts = true;
     }
 }
