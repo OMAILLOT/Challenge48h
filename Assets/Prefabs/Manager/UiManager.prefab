@@ -124,8 +124,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 863327675}
         m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
-        m_MethodName: CheckQuestion
-        m_Mode: 3
+        m_MethodName: CheckLevelQuetion
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -530,15 +530,15 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 863327675}
         m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
-        m_MethodName: CheckQuestion
-        m_Mode: 3
+        m_MethodName: CheckLevelQuetion
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &162226273
 GameObject:
@@ -11594,7 +11594,7 @@ MonoBehaviour:
   iQPanel: {fileID: 410447384}
   chancePanel: {fileID: 1594259523}
   interactionPanel: {fileID: 760870051}
-  preQuestionPanel: {fileID: 0}
+  preQuestionPanel: {fileID: 972780202}
   GameView: {fileID: 8128041872555000472}
   EndView: {fileID: 533413172}
   startTurnButton: {fileID: 8128041872885500246}
