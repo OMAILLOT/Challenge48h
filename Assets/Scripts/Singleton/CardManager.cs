@@ -26,7 +26,7 @@ public class CardManager : MonoSingleton<CardManager>
                 UiManager.Instance.ActiveChanceCard(chanceCards[Random.Range(0, chanceCards.Count)]);
                 break;
             case TypeCase.qiPoints:
-                UiManager.Instance.ActiveQuestionCardUi(cardQuestions[Random.Range(0, cardQuestions.Count)]);
+                UiManager.Instance.ActivePreQuestionCardUi(QuestionManager.Instance.PeekCard(true,false));
                 break;
             case TypeCase.Interaction:
                 UiManager.Instance.ActiveInteractionCard(interactionCard[Random.Range(0, interactionCard.Count)]);

@@ -14,6 +14,7 @@ public class UiManager : MonoSingleton<UiManager>
     public CanvasGroup iQPanel;
     public CanvasGroup chancePanel;
     public CanvasGroup interactionPanel;
+    public CanvasGroup preQuestionPanel;
 
 
     [Space(5)]
@@ -30,11 +31,15 @@ public class UiManager : MonoSingleton<UiManager>
 
     [SerializeField] float timeToChangeNumber;
 
+    [Header("Question Panel")]
+    [SerializeField] TextMeshProUGUI questionDescription;
+    [SerializeField] List<TextMeshProUGUI> allReponses;
 
     EvenmentCard currentEvenmentCard;
     CardQuestion currentCardQuestion;
     InteractionCard currentInteractionCard;
     ChanceCard currentChanceCard;
+    bool isCurrentCardEasy;
 
     TypeCase currentTypeCase;
 
@@ -113,27 +118,60 @@ public class UiManager : MonoSingleton<UiManager>
     #endregion
 
     #region QuestionCard
-    public void ActiveQuestionCardUi(CardQuestion cardQuestion)
+
+    public void ActivePreQuestionCardUi(CardQuestion cardQuestion)
     {
+        preQuestionPanel.alpha = 1f;
+        preQuestionPanel.interactable = true;
+        preQuestionPanel.blocksRaycasts = true;
+        currentCardQuestion = cardQuestion;
+    }
+    public void ActiveQuestionCardUi()
+    {
+        preQuestionPanel.alpha = 0;
+        iQPanel.interactable = false;
+        iQPanel.blocksRaycasts = false;
+
+        questionDescription.text = currentCardQuestion.question;
+
+        for (int i = 0; i < currentCardQuestion.reponse.Count; i++)
+        {
+            allReponses[i].text = currentCardQuestion.reponse[i];
+        } 
+
         iQPanel.alpha = 1;
         iQPanel.interactable = true;
         iQPanel.blocksRaycasts = true;
-        currentCardQuestion = cardQuestion;
+        
     }
 
     public void CheckQuestion(int index)
     {
-        if (currentCardQuestion.answerIndex == index)
+        if (currentCardQuestion.bonneReponse == currentCardQuestion.reponse[index])
         {
-            currentCardQuestion.WinChoose();
+            if (isCurrentCardEasy) PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint += 100;
+            else PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint += 200;
         } else
         {
-            currentCardQuestion.looseChose();
+            if (isCurrentCardEasy) PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint -= 100;
+            else PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint -= 200;
         }
         iQPanel.alpha = 0f;
         iQPanel.interactable = false;
         iQPanel.blocksRaycasts = false;
         nextTurnbuttonPress();
+    }
+
+    public void CheckLevelQuetion(bool isEasy)
+    {
+        preQuestionPanel.alpha = 0f;
+        preQuestionPanel.interactable = false;
+        preQuestionPanel.blocksRaycasts = false;
+        isCurrentCardEasy = isEasy;
+
+        QuestionManager.Instance.PeekCard(isEasy,false);
+
+        ActiveQuestionCardUi();
     }
     #endregion
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
     public List<PlayerController> allPlayer;
+    public List<GameObject> playeryStatsTurnUi;
     public List<Transform> playerStartAndEnd;
     public int minDiceNumber;
     public int maxDiceNumber;
@@ -37,14 +38,17 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         allPlayer[currentIndexPlayer].StartMyTurn();
         UiManager.Instance.StartTurnUI();
         CameraManager.Instance.CameraSwitch(playerNameForCamera[currentIndexPlayer]);
+        playeryStatsTurnUi[currentIndexPlayer].SetActive(true);
 
     }
     public void NextTurn()
     {
         allPlayer[currentIndexPlayer].isMyTurn = false;
-
+        playeryStatsTurnUi[currentIndexPlayer].SetActive(false);
         currentIndexPlayer++;
         if (currentIndexPlayer >= allPlayer.Count) currentIndexPlayer = 0;
+
+        playeryStatsTurnUi[currentIndexPlayer].SetActive(true);
 
         CameraManager.Instance.CameraSwitch(playerNameForCamera[currentIndexPlayer]);
         allPlayer[currentIndexPlayer].StartMyTurn();
