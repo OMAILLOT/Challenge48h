@@ -11,7 +11,7 @@ public class MPrincipale : MonoBehaviour
 
     public void PlayButton()
     {
-        Debug.Log("Play !");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void OptionsButton()

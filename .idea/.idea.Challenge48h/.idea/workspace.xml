@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1fe48c9-e4bc-4f42-a894-68f7ecceec82" name="Changes" comment="" />
+    <list default="true" id="a1fe48c9-e4bc-4f42-a894-68f7ecceec82" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Challenge48h/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Challenge48h/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +25,18 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/12d27ebfb46146b18b40876234894c77468a00/65/df6d2b48/Array.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MPrincipale.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/ProjectSettings/QualitySettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/ProjectSettings/QualitySettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/alexis/unity/Challenge48h/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -37,6 +52,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Menu&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -53,10 +69,10 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="24059">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="24059" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -79,6 +95,7 @@
       <workItem from="1681415421730" duration="3881000" />
       <workItem from="1681455204693" duration="1681000" />
       <workItem from="1681457714709" duration="48000" />
+      <workItem from="1681457864102" duration="504000" />
     </task>
     <servers />
   </component>
@@ -88,7 +105,19 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
