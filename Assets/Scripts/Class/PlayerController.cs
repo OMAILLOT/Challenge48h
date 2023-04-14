@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public string playerName;
     public int currentCoin;
-    public float knowledgePoint;
+    public float averagePoint;
     public bool isMyTurn = false;
     public int playerOnCaseIndex = 0;
     public int numberOfTurn = 0;
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         else if (currentCase.type == TypeCase.qiPoints)
         {
             // Si la case est de type "QI", retirer du QI au joueur
-            knowledgePoint -= 50;
+            averagePoint -= 50;
             Debug.Log("Vous avez perdu 50 points de QI !");
         }
         else
