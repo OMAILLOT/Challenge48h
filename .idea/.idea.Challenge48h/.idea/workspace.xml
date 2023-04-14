@@ -95,10 +95,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4256">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="4256" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -143,6 +143,7 @@
       <workItem from="1681476711090" duration="692000" />
       <workItem from="1681479777314" duration="2122000" />
       <workItem from="1681484229361" duration="1358000" />
+      <workItem from="1681500992442" duration="453000" />
     </task>
     <task id="LOCAL-00001" summary="Patch">
       <created>1681458704533</created>
@@ -193,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681484969733</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="before merge">
+      <created>1681501030088</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681501030088</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +229,8 @@
     <MESSAGE value="Ajout bruit quand le pion arrive sur une case" />
     <MESSAGE value="Ajout sons" />
     <MESSAGE value="Duplication of scene" />
-    <option name="LAST_COMMIT_MESSAGE" value="Duplication of scene" />
+    <MESSAGE value="before merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="before merge" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
