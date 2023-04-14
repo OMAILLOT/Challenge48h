@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator AnimationMove()
     {
-        
         //playerOnCaseIndex++;
         int finalIndex = playerOnCaseIndex + diceResult;
         if (playerOnCaseIndex == BoardManager.Instance.allCases.Count)
