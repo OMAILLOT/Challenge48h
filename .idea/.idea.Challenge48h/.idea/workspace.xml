@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1fe48c9-e4bc-4f42-a894-68f7ecceec82" name="Changes" comment="Patch">
+    <list default="true" id="a1fe48c9-e4bc-4f42-a894-68f7ecceec82" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Challenge48h/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Challenge48h/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Class/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Class/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menus/MPrincipale.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menus/MPrincipale.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +26,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/12d27ebfb46146b18b40876234894c77468a00/65/df6d2b48/Array.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e9b3234498b44129988aef954daf0d84fe00/1b/e3c22f2e/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MInGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MOptions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MPrincipale.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menus/MPrincipale.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Singleton/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Singleton/UiManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.postprocessing@3.2.2/PostProcessing/Runtime/Effects/AmbientOcclusion.cs" root0="SKIP_HIGHLIGHTING" />
@@ -95,10 +99,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="98525">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="127208">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="98525" />
+      <option name="pid" value="127208" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -141,7 +145,8 @@
       <workItem from="1681471501987" duration="228000" />
       <workItem from="1681471825784" duration="2252000" />
       <workItem from="1681476711090" duration="692000" />
-      <workItem from="1681479777314" duration="1915000" />
+      <workItem from="1681479777314" duration="2122000" />
+      <workItem from="1681484229361" duration="359000" />
     </task>
     <task id="LOCAL-00001" summary="Patch">
       <created>1681458704533</created>
@@ -171,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681481363319</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Ajout bruit quand le pion arrive sur une case">
+      <created>1681481883161</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681481883161</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +208,8 @@
     <MESSAGE value="Ajout système de son menu principale &amp; InGame" />
     <MESSAGE value="Ajout fichier son" />
     <MESSAGE value="Patch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Patch" />
+    <MESSAGE value="Ajout bruit quand le pion arrive sur une case" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout bruit quand le pion arrive sur une case" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>

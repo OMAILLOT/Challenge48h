@@ -72,6 +72,7 @@ MonoBehaviour:
   allCaseToNextCase: []
   audioSource: {fileID: 4002250693578489630}
   audioClip: {fileID: 8300000, guid: 45f12209cbfbf129295dc3380c702857, type: 3}
+  nextTourClip: {fileID: 8300000, guid: f83aa42b6bd2e6b40838125551b3bcca, type: 3}
   totalScore: 0
 --- !u!82 &4002250693578489630
 AudioSource:

@@ -1313,6 +1313,8 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: da72564da3bb9e4758ead4c4fdf761fb, type: 2}
   principalCanva: {fileID: 534647256}
   optionCanva: {fileID: 435428025}
+  audioSource: {fileID: 1005529136}
+  audioClipOnClick: {fileID: 8300000, guid: 3e80b7f792dfd5940a009b8c92026119, type: 3}
 --- !u!1 &534647255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   principalCanva: {fileID: 534647256}
   optionCanva: {fileID: 435428025}
+  audioSource: {fileID: 1005529136}
+  audioClipOnClick: {fileID: 8300000, guid: 3e80b7f792dfd5940a009b8c92026119, type: 3}
 --- !u!1 &559536053
 GameObject:
   m_ObjectHideFlags: 0

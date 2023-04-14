@@ -8,14 +8,18 @@ public class MPrincipale : MonoBehaviour
 
     [SerializeField] private CanvasGroup principalCanva;
     [SerializeField] private CanvasGroup optionCanva;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClipOnClick;
 
     public void PlayButton()
     {
+        audioSource.PlayOneShot(audioClipOnClick);
         SceneManager.LoadScene("MainScene");
     }
 
     public void OptionsButton()
     {
+        audioSource.PlayOneShot(audioClipOnClick);
         principalCanva.alpha = 0;
         principalCanva.interactable = false;
         principalCanva.blocksRaycasts = false;

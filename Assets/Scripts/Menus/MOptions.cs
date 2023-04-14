@@ -19,6 +19,9 @@ public class MOptions : MonoBehaviour
     
     [SerializeField] private CanvasGroup principalCanva;
     [SerializeField] private CanvasGroup optionCanva;
+    
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClipOnClick;
 
     private void Start()
     {
@@ -124,6 +127,7 @@ public class MOptions : MonoBehaviour
 
     public void BackToPrincipale()
     {
+        audioSource.PlayOneShot(audioClipOnClick);
         optionCanva.alpha = 0;
         optionCanva.interactable = false;
         optionCanva.blocksRaycasts = false;

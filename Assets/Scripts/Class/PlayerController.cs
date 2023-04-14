@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public List<Case> allCaseToNextCase = new List<Case>();
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioClip nextTourClip;
 
     public int totalScore;
 
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
             playerOnCaseIndex++;
             if (playerOnCaseIndex >= BoardManager.Instance.allCases.Count)
             {
+                audioSource.PlayOneShot(nextTourClip);
                 playerOnCaseIndex = 0;
                 finalIndex -= BoardManager.Instance.allCases.Count;
                 numberOfTurn++;
