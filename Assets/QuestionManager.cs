@@ -1,18 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using BaseTemplate.Behaviours;
 
-public class QuestionManager : MonoBehaviour
+public class QuestionManager : MonoSingleton<QuestionManager>
 {
     public CardQuestion questionCard;
-
-<<<<<<< Updated upstream
-    private void Start()
-    {
-        string filePath = Application.dataPath + "/QuestionsFiles/questions_easyQI.csv";
-
-        StreamReader reader = new StreamReader(filePath);
-=======
+    
     public CardQuestion PeekCard(bool isEasy, bool isInteraction)
     {
         string easyOrHard = isEasy ? "easy" : "hard";
@@ -28,7 +22,6 @@ public class QuestionManager : MonoBehaviour
         {
             reader = new StreamReader(filePath);
         }
->>>>>>> Stashed changes
 
         List<CardQuestion> questionCards = new List<CardQuestion>();
 
@@ -62,9 +55,6 @@ public class QuestionManager : MonoBehaviour
 
         reader.Close();
 
-<<<<<<< Updated upstream
-=======
         return randomQuestion;
->>>>>>> Stashed changes
     }
 }
