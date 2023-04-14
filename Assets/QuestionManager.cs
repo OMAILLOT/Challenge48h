@@ -6,14 +6,22 @@ using BaseTemplate.Behaviours;
 public class QuestionManager : MonoSingleton<QuestionManager>
 {
     public CardQuestion questionCard;
-
-    public CardQuestion PeekCard(bool isEasy)
+    
+    public CardQuestion PeekCard(bool isEasy, bool isInteraction)
     {
         string easyOrHard = isEasy ? "easy" : "hard";
+        string filePath = Application.dataPath + "/QuestionsFiles/questions_" + easyOrHard + "QI.csv";
+        string filePathInter = Application.dataPath + "/QuestionsFiles/questions_interactions.csv";
 
-        string filePath = Application.dataPath + "/QuestionsFiles/questions_"+ easyOrHard + "QI.csv";
-
-        StreamReader reader = new StreamReader(filePath);
+        StreamReader reader = null;
+        if (isInteraction)
+        {
+            reader = new StreamReader(filePathInter);
+        }
+        else
+        {
+            reader = new StreamReader(filePath);
+        }
 
         List<CardQuestion> questionCards = new List<CardQuestion>();
 
@@ -33,17 +41,13 @@ public class QuestionManager : MonoSingleton<QuestionManager>
             }
 
             card.reponse = answers;
-            card.bonneReponse = answers[1]; // isoler la deuxième colonne (la bonne réponse)
+            card.bonneReponse = answers[1];
             questionCards.Add(card);
         }
 
-        // Sélectionne une question aléatoire
         CardQuestion randomQuestion = questionCards[Random.Range(0, questionCards.Count)];
 
-        // Affiche la question
         Debug.Log("Question : " + randomQuestion.question);
-    
-        // Affiche les réponses possibles
         foreach (string answer in randomQuestion.reponse)
         {
             Debug.Log("Réponse : " + answer);
@@ -52,6 +56,5 @@ public class QuestionManager : MonoSingleton<QuestionManager>
         reader.Close();
 
         return randomQuestion;
-
     }
 }

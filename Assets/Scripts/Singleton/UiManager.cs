@@ -168,7 +168,9 @@ public class UiManager : MonoSingleton<UiManager>
         preQuestionPanel.interactable = false;
         preQuestionPanel.blocksRaycasts = false;
         isCurrentCardEasy = isEasy;
-        QuestionManager.Instance.PeekCard(isEasy);
+
+        QuestionManager.Instance.PeekCard(isEasy,false);
+
         ActiveQuestionCardUi();
     }
     #endregion
