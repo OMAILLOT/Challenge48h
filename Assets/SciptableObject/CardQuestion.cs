@@ -10,10 +10,10 @@ public class CardQuestion : ScriptableObject
     public int CoinUpdate;
     public int knowledgeUpdate;
 
-    public int answerIndex;
+   // public int answerIndex;
 
     public string bonneReponse;
-    public List<QuestionData> questions;
+    //public List<QuestionData> questions;
 
     public void WinChoose()
     {
@@ -26,4 +26,6 @@ public class CardQuestion : ScriptableObject
         PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].currentCoin -= CoinUpdate;
         PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint -= knowledgeUpdate;
     }
+
+}
 

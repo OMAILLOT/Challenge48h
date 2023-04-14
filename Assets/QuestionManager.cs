@@ -1,14 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using BaseTemplate.Behaviours;
 
-public class QuestionManager : MonoBehaviour
+public class QuestionManager : MonoSingleton<QuestionManager>
 {
     public CardQuestion questionCard;
 
-    private void Start()
+    public CardQuestion PeekCard(bool isEasy)
     {
-        string filePath = Application.dataPath + "/QuestionsFiles/questions_easyQI.csv";
+        string easyOrHard = isEasy ? "easy" : "hard";
+
+        string filePath = Application.dataPath + "/QuestionsFiles/questions_"+isEasy+"QI.csv";
 
         StreamReader reader = new StreamReader(filePath);
 
@@ -47,6 +50,8 @@ public class QuestionManager : MonoBehaviour
         }
 
         reader.Close();
+
+        return randomQuestion;
 
     }
 }

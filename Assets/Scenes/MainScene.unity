@@ -26069,6 +26069,7 @@ Transform:
   - {fileID: 863327671}
   - {fileID: 8837224788908834880}
   - {fileID: 1874932802}
+  - {fileID: 2119110940}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27147,7 +27148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0.42005476, y: 0.0035638376, z: -0.0016334276, w: -0.9074904}
-  m_LocalPosition: {x: 80.35, y: 18, z: -62.9}
+  m_LocalPosition: {x: 78.35, y: 18, z: -62.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30172,7 +30173,7 @@ GameObject:
   - component: {fileID: 1062745868}
   - component: {fileID: 1062745867}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Q3Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49984,7 +49985,7 @@ GameObject:
   - component: {fileID: 1702752179}
   - component: {fileID: 1702752178}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Q1Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53353,7 +53354,7 @@ GameObject:
   - component: {fileID: 1822772704}
   - component: {fileID: 1822772703}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Q4Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54467,7 +54468,7 @@ GameObject:
   - component: {fileID: 1892302801}
   - component: {fileID: 1892302800}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Q2Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59795,6 +59796,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7303116509305054165, guid: dfec8d9b723b08e4ab4463a1b8f9cd7d, type: 3}
   m_PrefabInstance: {fileID: 2119037794}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2119110939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119110940}
+  - component: {fileID: 2119110941}
+  m_Layer: 0
+  m_Name: QuestionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2119110940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119110939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 931186144}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2119110941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119110939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3913b1f22f578f246a58ac7ec78cc841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionCard: {fileID: 0}
 --- !u!1001 &2123784071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60788,7 +60834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3535381308799019804, guid: ca33703aa7a9dd5478db33515d755285, type: 3}
       propertyPath: numberOfTurn
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3535381308799019804, guid: ca33703aa7a9dd5478db33515d755285, type: 3}
       propertyPath: maxDiceNumber
@@ -61330,9 +61376,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 760870051}
     - target: {fileID: 863327675, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: questionDescription
+      value: 
+      objectReference: {fileID: 1134633139}
+    - target: {fileID: 863327675, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: allReponses.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 863327675, guid: f325e26fb1450594081f972d19225445, type: 3}
       propertyPath: allPanelCards.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 863327675, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: allReponses.Array.data[0]
+      value: 
+      objectReference: {fileID: 1702752178}
+    - target: {fileID: 863327675, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: allReponses.Array.data[1]
+      value: 
+      objectReference: {fileID: 1892302800}
+    - target: {fileID: 863327675, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: allReponses.Array.data[2]
+      value: 
+      objectReference: {fileID: 1062745867}
+    - target: {fileID: 863327675, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: allReponses.Array.data[3]
+      value: 
+      objectReference: {fileID: 1822772703}
     - target: {fileID: 863327675, guid: f325e26fb1450594081f972d19225445, type: 3}
       propertyPath: allPanelCards.Array.data[0].typePanel
       value: 1
