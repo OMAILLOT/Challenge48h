@@ -4345,7 +4345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1382337332
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5744,7 +5744,7 @@ RectTransform:
   - {fileID: 2063169393180391545}
   - {fileID: 4972344383705454799}
   m_Father: {fileID: 8128041872555000473}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5785,7 +5785,7 @@ RectTransform:
   - {fileID: 410447381}
   - {fileID: 972780199}
   m_Father: {fileID: 8128041872555000473}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5977,7 +5977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8003468418338045189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7255,7 +7255,7 @@ RectTransform:
   - {fileID: 8844801958783963250}
   - {fileID: 8668586033549442493}
   m_Father: {fileID: 8128041872555000473}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8409,7 +8409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4972344383705454799
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9132,7 +9132,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8128041872555000473}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -9751,7 +9751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2063169393180391545
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11446,10 +11446,10 @@ RectTransform:
   m_Children:
   - {fileID: 162226274}
   - {fileID: 1047460649364336115}
+  - {fileID: 2026254834}
   - {fileID: 181141585923441072}
   - {fileID: 7950790551216239703}
   - {fileID: 2088838846}
-  - {fileID: 2026254834}
   - {fileID: 916708897540448903}
   - {fileID: 5960148678674859627}
   - {fileID: 8657002744149782683}
@@ -11594,6 +11594,7 @@ MonoBehaviour:
   iQPanel: {fileID: 410447384}
   chancePanel: {fileID: 1594259523}
   interactionPanel: {fileID: 760870051}
+  preQuestionPanel: {fileID: 0}
   GameView: {fileID: 8128041872555000472}
   EndView: {fileID: 533413172}
   startTurnButton: {fileID: 8128041872885500246}
