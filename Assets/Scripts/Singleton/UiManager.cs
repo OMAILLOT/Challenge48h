@@ -30,6 +30,9 @@ public class UiManager : MonoSingleton<UiManager>
 
     [SerializeField] float timeToChangeNumber;
 
+    [Header("Question Panel")]
+    [SerializeField] TextMeshProUGUI questionDescription;
+    [SerializeField] List<TextMeshProUGUI> allReponses;
 
     EvenmentCard currentEvenmentCard;
     CardQuestion currentCardQuestion;
@@ -115,6 +118,13 @@ public class UiManager : MonoSingleton<UiManager>
     #region QuestionCard
     public void ActiveQuestionCardUi(CardQuestion cardQuestion)
     {
+        questionDescription.text = cardQuestion.question;
+
+        for (int i = 0; i < cardQuestion.reponse.Count; i++)
+        {
+            allReponses[i].text = cardQuestion.reponse[i];
+        } 
+
         iQPanel.alpha = 1;
         iQPanel.interactable = true;
         iQPanel.blocksRaycasts = true;
@@ -123,7 +133,7 @@ public class UiManager : MonoSingleton<UiManager>
 
     public void CheckQuestion(int index)
     {
-        if (currentCardQuestion.answerIndex == index)
+        if (currentCardQuestion.bonneReponse == currentCardQuestion.reponse[index])
         {
             currentCardQuestion.WinChoose();
         } else
@@ -143,8 +153,8 @@ public class UiManager : MonoSingleton<UiManager>
     {
         currentInteractionCard = interactionCard;
         interactionPanel.alpha = 1f;
-        interactionPanel.interactable = false;
-        interactionPanel.blocksRaycasts = false;
+        interactionPanel.interactable = true;
+        interactionPanel.blocksRaycasts = true;
     }
 
     public void ActiveInteraction(bool isAccept)
@@ -172,10 +182,11 @@ public class UiManager : MonoSingleton<UiManager>
 
     public void ActiveChance()
     {
-        currentChanceCard.ActiveChanceCard();
         chancePanel.alpha = 0f;
         chancePanel.interactable = false;
         chancePanel.blocksRaycasts = false;
+        currentChanceCard.ActiveChanceCard();
+        nextTurnbuttonPress();
     }
     #endregion
 
