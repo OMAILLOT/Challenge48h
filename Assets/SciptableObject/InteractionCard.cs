@@ -6,6 +6,9 @@ using UnityEngine;
 public class InteractionCard : ScriptableObject
 {
     public string desctiption;
+    public string firstButtonText;
+    public string secondButtonText;
+
     public int CoinUpdate;
     public int knowledgeUpdate;
 
