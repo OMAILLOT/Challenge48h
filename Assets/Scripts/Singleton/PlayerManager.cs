@@ -16,7 +16,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     List<string> playerNameForCamera = new List<string>();
     public List<PlayerController> bestPlayerInEndGame = new List<PlayerController>();
-    public int numberOfWinner = 0;
+    public int numberOfWinner = 1;
 
     public void Start()
     {
@@ -53,15 +53,17 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public void EndGame()
     {
-        foreach(PlayerController player in bestPlayerInEndGame) 
+        numberOfWinner = 1;
+        foreach (PlayerController player in bestPlayerInEndGame) 
         {
             // player.finalPoint = calcule
             player.totalScore = player.currentCoin;
         }
         bestPlayerInEndGame.Sort((p1, p2) => p1.totalScore.CompareTo(p2.totalScore));
+        bestPlayerInEndGame.Reverse();
         for ( int i = 0; i < bestPlayerInEndGame.Count; i++ )
         {
-            if (i < bestPlayerInEndGame.Count-1 && bestPlayerInEndGame[i].totalScore == bestPlayerInEndGame[i + 1].totalScore)
+            if (i < bestPlayerInEndGame.Count-2 && bestPlayerInEndGame[i].totalScore == bestPlayerInEndGame[i + 1].totalScore)
             {
                 numberOfWinner++;
             }
