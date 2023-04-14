@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18991,6 +18991,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 931186144}
     m_Modifications:
+    - target: {fileID: 162226273, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 162226274, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 162226274, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 162226274, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000002861023
+      objectReference: {fileID: 0}
+    - target: {fileID: 162226274, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 74
+      objectReference: {fileID: 0}
     - target: {fileID: 533413172, guid: f325e26fb1450594081f972d19225445, type: 3}
       propertyPath: m_Alpha
       value: 0
@@ -19019,6 +19039,34 @@ PrefabInstance:
       propertyPath: otherPlayer
       value: 
       objectReference: {fileID: 623509536}
+    - target: {fileID: 7950790551216239703, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 26.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950790551216239703, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128041871665818044, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128041871665818044, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128041871665818045, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 37.4681
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128041871665818045, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 90.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128041871665818045, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 428.86957
+      objectReference: {fileID: 0}
     - target: {fileID: 8128041872555000472, guid: f325e26fb1450594081f972d19225445, type: 3}
       propertyPath: m_Alpha
       value: 1
@@ -19110,6 +19158,22 @@ PrefabInstance:
     - target: {fileID: 8128041872627721021, guid: f325e26fb1450594081f972d19225445, type: 3}
       propertyPath: m_Name
       value: UiManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128041872885500247, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 145.5303
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128041872885500247, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60.019
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128041872885500247, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -77.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128041872885500247, guid: f325e26fb1450594081f972d19225445, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 385.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f325e26fb1450594081f972d19225445, type: 3}
