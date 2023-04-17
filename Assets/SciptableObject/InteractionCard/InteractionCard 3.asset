@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a65be8c4b39acc0408a6b01fe4bbf681, type: 3}
-  m_Name: InteractionCard
+  m_Name: InteractionCard 3
   m_EditorClassIdentifier: 
-  desctiption: La classe organise une petite fete ce soir, pour feter la fin des
-    examens.
-  firstButtonText: Pas cette fois non merci
-  secondButtonText: Allons-y, ca doit etre sympa !
-  CoinUpdate: -50
-  knowledgeUpdate: -100
+  desctiption: Je passe un bon moment
+  firstButtonText: non bof
+  secondButtonText: "Oui tout \xE0 fait"
+  CoinUpdate: 50
+  knowledgeUpdate: 50

@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65be8c4b39acc0408a6b01fe4bbf681, type: 3}
-  m_Name: InteractionCard
+  m_Script: {fileID: 11500000, guid: 88b24e8c91960a046bea14bec588bda3, type: 3}
+  m_Name: Card 8
   m_EditorClassIdentifier: 
-  desctiption: La classe organise une petite fete ce soir, pour feter la fin des
-    examens.
-  firstButtonText: Pas cette fois non merci
-  secondButtonText: Allons-y, ca doit etre sympa !
-  CoinUpdate: -50
+  Description: "La biblioth\xE8que est ferm\xE9e pour la journ\xE9e \xE0 cause de
+    la manifestation. -100 connaissances"
+  CoinUpdate: 0
   knowledgeUpdate: -100

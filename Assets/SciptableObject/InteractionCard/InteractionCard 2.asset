@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88b24e8c91960a046bea14bec588bda3, type: 3}
-  m_Name: ChanceCard
+  m_Script: {fileID: 11500000, guid: a65be8c4b39acc0408a6b01fe4bbf681, type: 3}
+  m_Name: InteractionCard 2
   m_EditorClassIdentifier: 
-  Description: GG Tu pert 100 de connaissance
-  CoinUpdate: 0
-  knowledgeUpdate: -100
+  desctiption: J'ai besoin d'argent en ce moment...
+  firstButtonText: "Je continue de r\xE9vis\xE9"
+  secondButtonText: Je trouve un travail
+  CoinUpdate: 200
+  knowledgeUpdate: 0

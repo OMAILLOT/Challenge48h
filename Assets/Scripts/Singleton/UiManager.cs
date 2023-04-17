@@ -95,11 +95,11 @@ public class UiManager : MonoSingleton<UiManager>
 
         for (int i = 0; i < PlayerManager.Instance.numberOfWinner; i++)
         {
-            topPlayer.text += $"{PlayerManager.Instance.bestPlayerInEndGame[i].playerName}\n";
+            topPlayer.text += $"{PlayerManager.Instance.bestPlayerInEndGame[i].playerName} - {PlayerManager.Instance.bestPlayerInEndGame[i].totalScore}\n";
         }
         for (int i = PlayerManager.Instance.numberOfWinner; i < PlayerManager.Instance.bestPlayerInEndGame.Count; i++)
         {
-            otherPlayer.text += $"{PlayerManager.Instance.bestPlayerInEndGame[i].playerName},\n";
+            otherPlayer.text += $"{PlayerManager.Instance.bestPlayerInEndGame[i].playerName} - {PlayerManager.Instance.bestPlayerInEndGame[i].totalScore},\n";
         }
         DOVirtual.Float(GameView.alpha, 0, .5f, a => GameView.alpha = a).SetDelay(1f);
         DOVirtual.Float(EndView.alpha, 1, .5f, a => EndView.alpha = a).SetDelay(1f).OnComplete(() => {
@@ -158,10 +158,10 @@ public class UiManager : MonoSingleton<UiManager>
 
     public void CheckQuestion(int index)
     {
-        if (currentCardQuestion.bonneReponse == currentCardQuestion.reponse[index])
+        if (index == 0)
         {
-            if (isCurrentCardEasy) PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint += 100;
-            else PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint += 200;
+            if (isCurrentCardEasy) PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint += 200;
+            else PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint += 400;
         } else
         {
             if (isCurrentCardEasy) PlayerManager.Instance.allPlayer[PlayerManager.Instance.currentIndexPlayer].knowledgePoint -= 100;

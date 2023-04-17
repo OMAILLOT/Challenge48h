@@ -21,27 +21,28 @@ public class MInGame : MonoSingleton<MInGame>
     private void FixedUpdate()
     {
         var players = PlayerManager.Instance.allPlayer;
+        turn.text = players[PlayerManager.Instance.currentIndexPlayer].playerName.ToString();
         for (var i = 0; i < players.Count; i++)
         {
             switch (i)
             {
                 case 0:
-                    turn.text = players[i].numberOfTurn.ToString();
+                    //turn.text = players[i].playerName.ToString();
                     player1QiText.text = players[i].knowledgePoint.ToString();
                     player1MoneyText.text = players[i].currentCoin.ToString();
                     break;
                 case 1:
-                    turn.text = players[i].numberOfTurn.ToString();
+                    //turn.text = players[i].playerName.ToString();
                     player2QiText.text = players[i].knowledgePoint.ToString();
                     player2MoneyText.text = players[i].currentCoin.ToString();
                     break;
                 case 2:
-                    turn.text = players[i].numberOfTurn.ToString();
+                    //turn.text = players[i].playerName.ToString();
                     player3QiText.text = players[i].knowledgePoint.ToString();
                     player3MoneyText.text = players[i].currentCoin.ToString();
                     break;
                 case 3:
-                    turn.text = players[i].numberOfTurn.ToString();
+                    //turn.text = players[i].playerName.ToString();
                     player4QiText.text = players[i].knowledgePoint.ToString();
                     player4MoneyText.text = players[i].currentCoin.ToString();
                     break;

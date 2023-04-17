@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88b24e8c91960a046bea14bec588bda3, type: 3}
-  m_Name: Card
+  m_Name: Card 6
   m_EditorClassIdentifier: 
-  Description: "Tu viens de r\xE9soudre une \xE9nigme complexe et ton cerveau est
-    en \xE9bullition. +150 connaissances"
-  CoinUpdate: 0
-  knowledgeUpdate: 150
+  Description: "Vous avez succomb\xE9 \xE0 une fringale nocturne. Vous vous commandez
+    des snacks pour la nuit -30 coins"
+  CoinUpdate: -30
+  knowledgeUpdate: 0
